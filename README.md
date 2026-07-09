@@ -1,224 +1,173 @@
+# INNORIX
+
+![Platform](https://img.shields.io/badge/Platform-INNORIX-16A34A)
+![Python](https://img.shields.io/badge/Python-Integration-blue)
+![REST API](https://img.shields.io/badge/API-REST-orange)
+![License](https://img.shields.io/badge/License-Commercial-red)
+![Status](https://img.shields.io/badge/Status-Official-success)
+
+Enterprise File Transfer Platform for AI, Security, Cloud, Kubernetes, and Enterprise Infrastructure.
+
+INNORIX provides high-performance, reliable, and secure file transfer capabilities for enterprise systems. This organization contains official integration examples demonstrating how INNORIX can be integrated with modern platforms and enterprise workflows.
 
 ---
 
-# Exacoola Transfer API Example 🚀
+# Architecture
 
-Create and manage automated file transfers using the Exacoola API.
-
-This repository provides examples for creating transfer tasks through the Exacoola Transfer API.
-
-With the Transfer API, you can configure file transfers between registered devices with flexible options:
-
-* Source and target devices
-* File selection rules
-* Transfer options
-* Execution schedules
-* Repeated transfers
-* Synchronization transfers
-
-Build your own automated file transfer workflow with Exacoola.
-
----
-
-## What is Transfer API? 📦
-
-The Exacoola Transfer API allows you to create and manage file transfer jobs between devices registered in your workspace.
-
-A transfer defines:
-
-* Where files are collected from
-* Where files are delivered
-* Which files should be transferred
-* When the transfer should run
-* How the transfer should be executed
-
-After creating a transfer, Exacoola manages the transfer process based on your configuration.
-
----
-
-## Transfer Structure 🔄
-
-A transfer consists of three main components:
-
-```
-Source Device
-      ↓
-Transfer Configuration
-      ↓
-Target Device
-```
-
-You can define source conditions, target options, and execution schedules through API requests.
-
----
-
-## Source Configuration 📥
-
-Configure the source device and files to transfer.
-
-### Supported Options
-
-* Source device ID
-* Source path
-* File extension filtering
-* File size conditions
-
-  * Minimum file size
-  * Maximum file size
-* Filename filtering
-
-  * Include specific text in filename
-
-### Example
-
-```
-{
-  "sourceDeviceId": "device-001",
-  "sourcePath": "/data/source",
-  "sourceOptions": {
-    "extensions": [
-      "jpg",
-      "png"
-    ],
-    "minSize": 1024,
-    "maxSize": 10485760,
-    "fileNameContains": "report"
-  }
-}
+```text
+Enterprise Systems
+        │
+        ▼
++----------------------+
+|   INNORIX Platform   |
++----------------------+
+        │
+        ├──────── AI
+        ├──────── Security
+        ├──────── Kubernetes
+        ├──────── Infrastructure
+        ├──────── API Gateway
+        ├──────── Observability
+        ├──────── Metrics
+        └──────── Event Pipeline
 ```
 
 ---
 
-## Target Configuration 📤
+# Integration Portfolio
 
-Configure the destination device and storage path.
-
-### Supported Options
-
-* Target device ID
-* Target path
-* Duplicate file handling
-* Automatic sub-path creation
-
-### Example
-
-```
-{
-  "targetDeviceId": "device-002",
-  "targetPath": "/data/backup",
-  "targetOptions": {
-    "duplicateHandling": "overwrite",
-    "createSubPath": true
-  }
-}
-```
+| Category | Repository | Description |
+|-----------|------------|-------------|
+| 🤖 AI | **innorix-ai-integration** | AI orchestration, dataset ingestion, model distribution |
+| 🔒 Security | **innorix-security-integration** | Transfer security artifacts after vulnerability scanning |
+| 🏗 Infrastructure as Code | **innorix-iac-integration** | Bootstrap infrastructure after provisioning |
+| ☸ Kubernetes | **innorix-kubernetes-integration** | Bootstrap Kubernetes environments and distribute data between clusters |
+| 🌐 API Gateway | **innorix-api-gateway-integration** | Secure file transfer APIs through API Gateway platforms |
+| 📈 Observability | **innorix-observability-integration** | Send transfer information to enterprise observability platforms |
+| 📊 Metrics | **innorix-metrics-integration** | Export transfer metrics to Prometheus and OpenTelemetry |
+| 🔄 Event Pipeline | **innorix-cribl-integration** | Stream transfer events into Cribl Stream |
 
 ---
 
-## Transfer Execution ⚡
+# Supported Technologies
 
-You can control when transfers are executed.
+## 🤖 AI & MLOps
 
-### Immediate Transfer
-
-Start the transfer immediately after creation.
-
-```
-Create Transfer
-        ↓
-Execute Transfer
-```
+- Kubeflow
+- Apache Airflow
+- Amazon SageMaker
+- Google Vertex AI
+- Azure Machine Learning
 
 ---
 
-### Scheduled Transfer
+## 🔒 Security
 
-Run transfers automatically based on a schedule.
-
-Supported schedules:
-
-* Every hour
-* Daily at a specific time
-* Weekly at a specific time
-* Monthly at a specific time
-
-Examples:
-
-```
-Every hour
-
-Every day at 02:00 AM
-
-Every Monday at 09:00 AM
-
-Every month on the 1st day
-```
+- Aqua Security
+- Trivy
+- Semgrep
+- CrowdSec
 
 ---
 
-## Transfer Types 🔄
+## 🏗 Infrastructure
 
-### Repeated Transfer
-
-Automatically executes transfers based on the configured schedule.
-
-Useful for:
-
-* Periodic backups
-* Regular file delivery
-* Automated data collection
+- Terraform
+- Pulumi
+- Crossplane
+- Upbound
+- Spacelift
+- env0
 
 ---
 
-### Synchronization Transfer
+## ☸ Kubernetes
 
-Keeps source and target data synchronized.
-
-Useful for:
-
-* Data mirroring
-* Continuous file synchronization
-* Device data management
+- Helm Chart
+- Kubernetes Operator
+- Loft Labs
+- vCluster
 
 ---
 
-## API Flow 🔧
+## 🌐 API Gateway
 
-The typical workflow:
+- Kong
+- Tyk
 
-```
-1. Create Workspace
-          ↓
-2. Register Devices
-          ↓
-3. Generate API Key
-          ↓
-4. Create Transfer
-          ↓
-5. Monitor Transfer Status
+---
+
+## 📈 Observability
+
+- Datadog
+- New Relic
+- Dynatrace
+- Better Stack
+- Groundcover
+
+---
+
+## 📊 Metrics
+
+- Prometheus
+- OpenTelemetry
+
+---
+
+## 🔄 Event Pipeline
+
+- Cribl Stream
+
+---
+
+# Repository Structure
+
+```text
+INNORIX
+│
+├── innorix-ai-integration
+├── innorix-security-integration
+├── innorix-iac-integration
+├── innorix-kubernetes-integration
+├── innorix-api-gateway-integration
+├── innorix-observability-integration
+├── innorix-metrics-integration
+└── innorix-cribl-integration
 ```
 
 ---
 
-## Getting Started 🏁
+# Getting Started
 
-To create your first transfer:
+Choose the repository that best matches your integration scenario.
 
-1. Create an Exacoola workspace
-2. Register source and target devices
-3. Generate an API key
-4. Configure transfer options
-5. Send a transfer creation request
-6. Monitor the transfer status
-
----
-
-## Documentation 📚
-
-Learn more about Exacoola:
-
-* Developer Guide
-* API Reference
+| If you are integrating with... | Repository |
+|--------------------------------|------------|
+| 🤖 AI Platform | innorix-ai-integration |
+| 🔒 Security Platform | innorix-security-integration |
+| 🏗 Infrastructure as Code | innorix-iac-integration |
+| ☸ Kubernetes | innorix-kubernetes-integration |
+| 🌐 API Gateway | innorix-api-gateway-integration |
+| 📈 Observability Platform | innorix-observability-integration |
+| 📊 Metrics Platform | innorix-metrics-integration |
+| 🔄 Event Pipeline | innorix-cribl-integration |
 
 ---
 
+# Why INNORIX?
+
+- High-performance enterprise file transfer
+- Secure REST API integration
+- Multi-platform support
+- Large-scale dataset distribution
+- Enterprise automation workflows
+- Hybrid and multi-cloud deployment
+- Official integration examples
+
+---
+
+# License
+
+Commercial License
+
+Copyright © INNORIX Co., Ltd. All rights reserved.
