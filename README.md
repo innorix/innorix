@@ -1,188 +1,99 @@
 # INNORIX
 
-![Platform](https://img.shields.io/badge/Platform-INNORIX-16A34A)
-![Enterprise](https://img.shields.io/badge/Enterprise-Ready-2563EB)
+![Platform](https://img.shields.io/badge/INNORIX-Platform-16A34A)
 ![REST API](https://img.shields.io/badge/API-REST-orange)
+![Languages](https://img.shields.io/badge/Examples-Node.js%20%7C%20Python%20%7C%20Java%20%7C%20C%23-2563EB)
 ![License](https://img.shields.io/badge/License-Commercial-red)
-![Status](https://img.shields.io/badge/Status-Official-success)
 
-Enterprise File Transfer Platform for AI, Security, Kubernetes, Cloud, and Enterprise Infrastructure.
+**Let files move themselves.**
 
-INNORIX provides high-performance, secure, and reliable file transfer capabilities for enterprise environments. This organization contains official integration examples demonstrating how the INNORIX Platform integrates with modern enterprise platforms and services.
+INNORIX provides enterprise file infrastructure for moving and automating files across every system and environment: servers, cloud and object storage, AI and edge systems. It is trusted by more than 5,000 enterprises and government agencies.
 
----
-
-# Platform Architecture
-
-```text
-                    Enterprise Environment
-
- NAS │ Local Storage │ Cloud │ Edge │ NAS │ Object Storage
-                      │
-                      ▼
-              +--------------------+
-              |  INNORIX Platform  |
-              +--------------------+
-                      │
-     ┌────────────────┼─────────────────┐
-     │                │                 │
-     ▼                ▼                 ▼
- AI Platforms    Enterprise Apps    Cloud Services
-     │                │                 │
-     └────────────────┼─────────────────┘
-                      ▼
-            Secure File Transfer
-```
+This GitHub account holds the official, runnable code for developers who work with the **INNORIX Platform API**: learning examples for every part of the API, and the ready-to-run code that the Transfer Builder generates.
 
 ---
 
-# Integration Portfolio
+## What the INNORIX Platform does
 
-| Category | Repository | Description |
-|-----------|------------|-------------|
-| 🤖 AI | **innorix-ai-integration** | AI orchestration, dataset ingestion, model distribution |
-| 🔒 Security | **innorix-security-integration** | Transfer security artifacts after vulnerability scanning |
-| 🏗 Infrastructure | **innorix-iac-integration** | Bootstrap infrastructure after provisioning |
-| ☸ Kubernetes | **innorix-kubernetes-integration** | Bootstrap clusters and distribute data |
-| 🌐 API Gateway | **innorix-api-gateway-integration** | Secure transfer APIs through API gateways |
-| 📈 Observability | **innorix-observability-integration** | Send transfer events to observability platforms |
-| 📊 Metrics | **innorix-metrics-integration** | Export metrics to Prometheus and OpenTelemetry |
-| 🔄 Event Pipeline | **innorix-cribl-integration** | Stream transfer events into Cribl |
+You connect **devices** to a workspace: a PC or server by installing the INNORIX Agent, or cloud storage (Amazon S3, Azure Blob Storage, Google Cloud Storage and others) by entering its credentials. Files then move between devices through **automations**: which device sends which path to which device, when, with which options. Everything the console does, the REST API does too.
 
----
+| Area | What it covers |
+|---|---|
+| [Transfer Automation](https://innorix.com/en/transfer/automation) | Scheduled, chained, event-driven and watch-folder transfers, with filters, target options and follow-up actions |
+| [Server-to-Server](https://innorix.com/en/transfer/server-to-server) · [Object Storage to Object Storage](https://innorix.com/en/transfer/object-storage) | Direct transfers between servers, and between S3, Azure Blob, GCS and other object stores |
+| [File Distribution & Collection](https://innorix.com/en/transfer/distribution-collection) | One source to many devices, or many devices into one |
+| [High-Speed](https://innorix.com/en/transfer/high-speed) · [Large File](https://innorix.com/en/transfer/large-file) · [Mass Files](https://innorix.com/en/transfer/high-volume) | Performance at scale, with integrity verification of every file |
+| [FTP / SFTP Migration](https://innorix.com/en/transfer/ftp-sftp-migration) | Replace script-driven FTP and SFTP jobs with managed transfers |
+| [INNORIX EX](https://innorix.com/en/ex) | Large-file upload and download for web applications |
+| [Application Embedded Transfer](https://innorix.com/en/transfer/embedded) | Drive transfers from your own software through the API |
+| [AI Data Delivery](https://innorix.com/en/transfer/ai-data-delivery) · [Dynamic Endpoint Transfer](https://innorix.com/en/transfer/dynamic-endpoint) | Datasets and models to AI systems; endpoints that come and go |
+| [Hyperlane](https://innorix.com/en/hyperlane) | Ultra-large transfers across countries and continents |
 
-# Supported Technologies
-
-## 🤖 AI & MLOps
-
-- Kubeflow
-- Apache Airflow
-- Amazon SageMaker
-- Google Vertex AI
-- Azure Machine Learning
+Full overview: [innorix.com/en/platform](https://innorix.com/en/platform)
 
 ---
 
-## 🔒 Security
+## Repositories
 
-- Aqua Security
-- Trivy
-- Semgrep
-- CrowdSec
+| Repository | What is inside | Who it is for |
+|---|---|---|
+| [**innorix-api-examples**](https://github.com/innorix/innorix-api-examples) | 19 runnable examples, each in Node.js, Python, Java and C#, one folder per topic: one-to-one transfer, collection, distribution, conflict policies, scheduled automations, webhooks, workflows, filters, target options, synchronization, incremental transfer, status and history, transfer control, error inspection, integrity verification, monitoring, audit | Developers learning the API or building an integration |
+| [**transfer-builder-artifacts**](https://github.com/innorix/transfer-builder-artifacts) | The code generated by the [Transfer Builder](https://innorix.com/en/developers#irxBuilder): 60 ready-to-run configurations (send to one, send to many, collect from many × start condition × file options × follow-up actions), each in the same four languages | Anyone who configured a transfer in the Builder and wants to run it as code |
 
----
-
-## 🏗 Infrastructure as Code
-
-- Terraform
-- Pulumi
-- Crossplane
-- Upbound
-- Spacelift
-- env0
+Both repositories follow the same layout: one folder per example, a `nodejs/`, `python/`, `java/` and `csharp/` folder inside it, and a README at every level. Each language folder runs on its own: copy `.env.example` to `.env`, fill in your API key and devices, run.
 
 ---
 
-## ☸ Kubernetes
+## Start in five steps
 
-- Helm Chart
-- Kubernetes Operator
-- Loft Labs
-- vCluster
+1. **Create an account** at [innorix.com](https://innorix.com/en/) and sign in to the console at [app.innorix.com](https://app.innorix.com).
+2. **Get your API key.** In the console, open the profile menu at the bottom-left → **Developer**. The dialog shows your API key and Workspace ID.
+3. **Connect two devices** under **Devices → Connect Device**: a source and a target. The [Product Guide](https://innorix.com/en/product-guide#connect-devices) walks through it.
+4. **Open an example.** Start with [one-to-one transfer](https://github.com/innorix/innorix-api-examples/tree/main/one-to-one-transfer); every other example builds on it.
+5. **Run it** from the language folder of your choice. Its README has the exact commands.
 
----
-
-## 🌐 API Gateway
-
-- Kong
-- Tyk
+The examples authenticate with the API key in the `x-api-key` header. No SDK is required: every example uses the language's standard HTTP client against the REST API.
 
 ---
 
-## 📈 Observability
+## Transfer Builder
 
-- Datadog
-- Dynatrace
-- New Relic
-- Better Stack
-- Groundcover
+The [Transfer Builder](https://innorix.com/en/developers#irxBuilder) is the quickest way from an idea to running code. Choose the transfer type, when it should start, which files to include and what should happen afterwards; the Builder shows the matching configuration page, and from there you download the code in Node.js, Python, Java or C#, or take the same folder from [transfer-builder-artifacts](https://github.com/innorix/transfer-builder-artifacts).
 
 ---
 
-## 📊 Metrics
+## Integrations
 
-- Prometheus
-- OpenTelemetry
+Automations can call the tools you already use. The current list is at [innorix.com/en/integrations](https://innorix.com/en/integrations).
 
----
+| Category | Tools |
+|---|---|
+| **Messaging** | Slack, Microsoft Teams, Discord, Telegram, Notion, Atlassian Jira, Atlassian Trello, Asana, ClickUp, Twilio, Twilio SendGrid, Amazon SES |
+| **Security** | Microsoft Defender, CrowdStrike Falcon, Palo Alto, Fortinet FortiEDR, Cisco AMP, Bitdefender, Symantec Norton, Trend Micro, McAfee ENS, Skyhigh Security, OPSWAT, Clam AntiVirus, Kaspersky KES, AVG, SOPHOS, Avast, Microsoft Purview, Vitrium Security |
+| **Monitoring** | Grafana, Prometheus, Datadog, New Relic, AppDynamics, Elastic Stack, Splunk, Sentry, PagerDuty, Opsgenie, monday.com, Zoho |
 
-## 🔄 Event Pipeline
-
-- Cribl Stream
-
----
-
-# Repository Overview
-
-```text
-INNORIX
-│
-├── 🤖 innorix-ai-integration
-├── 🔒 innorix-security-integration
-├── 🏗 innorix-iac-integration
-├── ☸ innorix-kubernetes-integration
-├── 🌐 innorix-api-gateway-integration
-├── 📈 innorix-observability-integration
-├── 📊 innorix-metrics-integration
-└── 🔄 innorix-cribl-integration
-```
+In the API these are integrations and processors: notification and security integrations apply workspace-wide, monitoring providers attach to an automation. The `webhook` and `monitoring` examples show both.
 
 ---
 
-# Choose Your Integration
+## Developer resources
 
-| Use Case | Repository |
-|----------|------------|
-| AI Workflow & MLOps | `innorix-ai-integration` |
-| Security Scanning | `innorix-security-integration` |
-| Infrastructure Provisioning | `innorix-iac-integration` |
-| Kubernetes Operations | `innorix-kubernetes-integration` |
-| API Management | `innorix-api-gateway-integration` |
-| Enterprise Observability | `innorix-observability-integration` |
-| Metrics Export | `innorix-metrics-integration` |
-| Event Pipeline | `innorix-cribl-integration` |
+| | |
+|---|---|
+| [Developer Center](https://innorix.com/en/developers) | Entry point: [API Quickstart](https://innorix.com/en/developers#irxApiQuick), [Examples](https://innorix.com/en/developers#irxExamples), [Developer Guide](https://innorix.com/en/developers#irxGuide) |
+| [API Reference](https://innorix.com/en/docs/api/reference) | Every endpoint. Start with [Get your API key](https://innorix.com/en/docs/api/get-api-key), [Control & monitor transfers](https://innorix.com/en/docs/api/transfer) and [Automate transfers](https://innorix.com/en/docs/api/automation) |
+| [Product Guide](https://innorix.com/en/product-guide) | The console: devices, the Agent, automations, transfers, history |
+| [Deploy & Manage](https://innorix.com/en/docs/deploy) | On-premises deployment and operations |
+| [Help Center](https://innorix.com/en/help) · [Status](https://status.innorix.com) | Support and service status |
 
 ---
 
-# Why INNORIX?
+## Company
 
-- 🚀 High-performance enterprise file transfer
-- 🔐 Secure REST API integration
-- 📦 Large-scale dataset distribution
-- ☸ Kubernetes and cloud-native ready
-- 🤖 AI and MLOps integration
-- 🔄 Enterprise workflow automation
-- 🌍 Hybrid and multi-cloud deployment
-- 📚 Official integration examples
+INNORIX Co., Ltd. builds enterprise file infrastructure, with offices in New York, Seoul and Ho Chi Minh City. [About us](https://innorix.com/en/company) · [Security](https://innorix.com/en/security) · [Pricing](https://innorix.com/en/pricing)
 
----
+## License
 
-# Getting Started
-
-Choose the repository that matches your integration scenario and follow its Quick Start guide.
-
-Each repository includes:
-
-- Official integration examples
-- Reference implementations
-- REST API client
-- Configuration samples
-- End-to-end workflows
-
----
-
-# License
-
-Commercial License
+The code in these repositories is provided under the INNORIX Commercial License; see the `LICENSE` file in each repository.
 
 Copyright © 2026 INNORIX Co., Ltd. All rights reserved.
